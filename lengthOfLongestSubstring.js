@@ -18,7 +18,7 @@ function lengthOfLongestSubstring(s) {
 }
 
 // Test cases:
-console.log(lengthOfLongestSubstring("abcabcbb")); // 3 ("abc")
+console.log(lengthOfLongestSubstring("abcabcbb")); // 3 ("abc")prime
 console.log(lengthOfLongestSubstring("bbbbb")); // 1 ("b")
 console.log(lengthOfLongestSubstring("pwwkew")); // 3 ("wke")
 console.log(lengthOfLongestSubstring("")); // 0
