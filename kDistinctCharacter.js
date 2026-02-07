@@ -6,8 +6,12 @@ function kDistinctCharacter(s, k) {
   for (let right = 0; right < s.length; right++) {
     map[s[right]] = (map[s[right]] || 0) + 1;
 
-    while (map[s[right]] > k) {
+    while (Object.keys(map).length > k) {
       map[s[left]]--;
+
+      if (map[s[left]] === 0) {
+        delete map[s[left]];
+      }
       left++;
     }
     let size = right - left + 1;
