@@ -1,15 +1,14 @@
 function intersection(arr1, arr2) {
-  let left = 0;
-  let right = 0;
-  let newArr = [];
+  let set = new Set(arr1);
 
-  while (left < arr1.length && right < arr2.length) {
-    if (arr1[left] === arr2[right]) {
-      newArr.push(arr1[left]);
-      left++;
-      right++;
+  const result = new Set();
+
+  for (let num of arr2) {
+    if (set.has(num)) {
+      result.add(num);
     }
   }
+  return Array.from(result);
 }
 
-console.log(intersection([4, 9, 5], [9, 4, 9, 8, 4]));
+console.log(intersection([1, 2, 2, 1], [2, 2]));
