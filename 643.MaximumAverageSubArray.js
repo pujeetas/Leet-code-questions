@@ -15,8 +15,10 @@ function maxSubarray(arr, k) {
     if (avg > max_avg) {
       max_avg = avg;
     }
-    sum = sum + arr[right + 1] - arr[left];
 
+    if (right + 1 < arr.length) {
+      sum = sum + arr[right + 1] - arr[left];
+    }
     left++;
     right++;
   }
