@@ -1,17 +1,25 @@
 function validAnagram(s, t) {
-  let map = {};
+  let sMap = {};
+  let tMap = {};
 
-  if (s.length !== t.length) return false;
-
-  for (let i in s) {
-    map[s[i]] = (map[s[i]] || 0) + 1;
+  if (s.length !== t.length) {
+    return false;
   }
 
-  for (let char of t) {
-    if (!map[char]) return false;
-    map[char]--;
+  for (let ch of s) {
+    sMap[ch] = (sMap[ch] || 0) + 1;
+  }
+
+  for (let ch of t) {
+    tMap[ch] = (tMap[ch] || 0) + 1;
+  }
+
+  for (let keys of s) {
+    if (sMap[keys] !== tMap[keys]) {
+      return false;
+    }
   }
   return true;
 }
 
-console.log(validAnagram("ab", "a"));
+console.log(validAnagram("rat", "cat"));

@@ -1,29 +1,32 @@
 function validAnagram(str, p) {
-  const pMap = new Map();
+  let pMap = {};
 
-  let counter = 0;
   let result = [];
-  let i = 0;
 
-  for (let char in p) {
-    pMap[p[char]] = (pMap[p[char]] || 0) + 1;
+  for (let ch of p) {
+    pMap[ch] = (pMap[ch] || 0) + 1;
   }
 
   for (let i = 0; i <= str.length - p.length; i++) {
-    const sMap = new Map();
+    let match = true;
 
-    for (let j = i; j < i + p.length; j++) {
-      sMap[str[j]] = (sMap[str[j]] || 0) + 1;
+    let window = str.slice(i, i + p.length);
+
+    let windMap = {};
+
+    for (let ch of window) {
+      windMap[ch] = (windMap[ch] || 0) + 1;
     }
 
-    for (const [key, val] of sMap) {
-      if (pMap.has(key) && pMap.get(key) === val) {
-        result.push(i);
+    for (let keys in pMap) {
+      if (pMap[keys] !== windMap[keys]) {
+        match = false;
+        break;
       }
     }
+    if (match) result.push(i);
   }
-
-  console.log(result);
+  return result;
 }
 
 console.log(validAnagram("cbaebabacd", "abc"));
