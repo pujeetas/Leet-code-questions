@@ -13,6 +13,7 @@ function game(arr) {
         record.push(record[record.length - 1] + record[record.length - 2]);
       }
     }
+    1;
   }
 
   let sum = 0;
