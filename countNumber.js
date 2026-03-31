@@ -1,4 +1,3 @@
-// Task 1:
 function countNumbers(nums) {
   let count = {};
   for (let i = 0; i < nums.length; i++) {
@@ -8,10 +7,7 @@ function countNumbers(nums) {
       count[nums[i]] = 1;
     }
   }
-  return count;
 }
-
-// Task 2:
 function countNumbersShort(nums) {
   let count = {};
   for (let i = 0; i < nums.length; i++) {
